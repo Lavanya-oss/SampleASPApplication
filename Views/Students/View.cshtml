@@ -1,0 +1,74 @@
+﻿@model StudentsProfileApplication.ViewModels.StudentViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="text-center bg-light p-3">Student Information</h2>
+<div class="container bg-light p-3 align-content-center" style="width:35%">
+    <dl class="row">
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.EnrollmentDate)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.EnrollmentDate)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.Gpa)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.Gpa)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.HasScholarShip)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.CheckBoxFor(model => model.HasScholarShip)
+        </dd>
+        <dt class="col-sm-5">
+            @Html.DisplayNameFor(model => model.SelectedDepartment.Name)
+        </dt>
+        <dd class="col-sm-7">
+            @Html.DisplayFor(model => model.SelectedDepartment.Name)
+        </dd>
+        <dt class="col-sm-5">
+            <label>Address</label>
+        </dt>
+        <dd class="col-sm-7">
+            @{
+                var AdddressData = $"{Model.Street},{Model.City},{Model.State},{Model.PostalCode}";
+            }
+            @AdddressData
+        </dd>
+    </dl>
+    <div>
+        <a asp-action="Delete" asp-route-id="@Model.StudentId" style="margin-right:3px">Delete</a>
+        <a asp-action="Edit" asp-route-id="@Model?.StudentId" style="margin-right:4px">Edit</a>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+
